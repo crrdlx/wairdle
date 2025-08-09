@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Play Wairdle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #4a5568;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            color: #2d3748;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        h3 {
+            color: #4a5568;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .game-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .mode-card {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .mode-card h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: #f7fafc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .scoring-table th,
+        .scoring-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .scoring-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .scoring-table tr:nth-child(even) {
+            background: #edf2f7;
+        }
+
+        .example-round {
+            background: #f0fff4;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #48bb78;
+            margin: 1.5rem 0;
+        }
+
+        .example-round h3 {
+            color: #2f855a;
+            margin-bottom: 1rem;
+        }
+
+        .example-round p {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: #fef5e7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .tips {
+            background: #ebf8ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3182ce;
+            margin: 1.5rem 0;
+        }
+
+        .tips h3 {
+            color: #2c5282;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .game-modes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How to Play Wairdle</h1>
+        
+        <p>Wairdle is a fun, word-guessing game inspired by 20 Questions and Wordle, where you try to guess a secret word in 7 questions or fewer. It's a mental challenge that tests your deduction and creativity, perfect for word lovers and puzzle enthusiasts!</p>
+
+        <h2>Game Setup</h2>
+        <ul>
+            <li><strong>The Word</strong>: The game host (a person or AI like Grok) chooses a secret English word. By default, it's a noun, but in "Mixed Mode," it can be any part of speech (e.g., verb, adjective).</li>
+            <li><strong>Word Length</strong>: The host reveals the word's length upfront (e.g., "It's a 5-letter noun: _ _ _ _ _") unless you choose "Mystery Mode," where the length is hidden.</li>
+            <li><strong>Questions</strong>: You have up to 7 questions to guess the word, inspired by the "six degrees of separation" concept. Questions can be yes/no (e.g., "Is it a living thing?"), open-ended (e.g., "What's it used for?"), or specific guesses (e.g., "Is it a pencil?").</li>
+            <li><strong>Goal</strong>: Guess the word in as few questions as possible!</li>
+        </ul>
+
+        <h2>How to Play</h2>
+        <ol>
+            <li><strong>Start the Game</strong>: The host announces the word's details (e.g., "It's a 5-letter noun"). If playing in Mixed Mode, they'll note if it's not a noun. In Mystery Mode, no length is given.</li>
+            <li><strong>Ask Questions</strong>: Ask up to 7 questions to narrow down the word. You can ask:
+                <ul>
+                    <li>Yes/no questions (e.g., "Is it tangible?")</li>
+                    <li>Descriptive questions (e.g., "What's a common use for it?")</li>
+                    <li>Direct guesses (e.g., "Is it a table?")</li>
+                </ul>
+                The host answers clearly, with more specific questions yielding more detailed answers.
+            </li>
+            <li><strong>Visual Aid</strong>: The host provides a visual like "_ _ _ _ _" for a 5-letter word, which may update if you learn specific letters (e.g., "S _ _ _ _" if the first letter is revealed).</li>
+            <li><strong>Free Hint</strong>: You can request one free hint per game, like the word's category (e.g., "It's a physical object") or the first letter. Ask for it anytime!</li>
+            <li><strong>Guess the Word</strong>: Use your questions to deduce the word. If you guess correctly or use all 7 questions, the host reveals the word and the game ends.</li>
+        </ol>
+
+        <h2>Game Modes</h2>
+        <div class="game-modes">
+            <div class="mode-card">
+                <h3>Standard Mode</h3>
+                <p>The word is a noun, and the length is revealed (e.g., "6-letter noun: _ _ _ _ _ _").</p>
+            </div>
+            <div class="mode-card">
+                <h3>Mixed Mode</h3>
+                <p>The word can be any part of speech (noun, verb, adjective, etc.), with length revealed unless you choose Mystery Mode.</p>
+            </div>
+            <div class="mode-card">
+                <h3>Mystery Mode</h3>
+                <p>The word length is hidden, increasing the challenge. You can use a question to ask about length (e.g., "Is it longer than 5 letters?").</p>
+            </div>
+        </div>
+
+        <h2>Scoring (Optional)</h2>
+        <table class="scoring-table">
+            <thead>
+                <tr>
+                    <th>Questions Used</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 question</td>
+                    <td>10 points</td>
+                </tr>
+                <tr>
+                    <td>2-3 questions</td>
+                    <td>8 points</td>
+                </tr>
+                <tr>
+                    <td>4-5 questions</td>
+                    <td>6 points</td>
+                </tr>
+                <tr>
+                    <td>6-7 questions</td>
+                    <td>4 points</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Bonus</strong>: +2 points if you guess without using all 7 questions.</p>
+        <p>Track your score across rounds for bragging rights!</p>
+
+        <div class="tips">
+            <h3>Tips for Success</h3>
+            <ul>
+                <li>Start broad with yes/no questions to narrow the field (e.g., "Is it a physical object?" or "Is it alive?").</li>
+                <li>Use descriptive questions to gather context (e.g., "Who typically uses it?").</li>
+                <li>Save your free hint for when you're stuck or want to confirm a hunch.</li>
+                <li>Think about the word length and visual aid to guide your guesses.</li>
+                <li>Be creative—specific questions can unlock detailed clues!</li>
+            </ul>
+        </div>
+
+        <div class="example-round">
+            <h3>Example Round</h3>
+            <p><strong>Host</strong>: "It's a 5-letter noun: _ _ _ _ _."</p>
+            <p><strong>Player Q1</strong>: "Is it a tangible object?" <strong>Host</strong>: "Yes."</p>
+            <p><strong>Player Q2</strong>: "Is it found indoors?" <strong>Host</strong>: "Usually, yes."</p>
+            <p><strong>Player Q3</strong>: "What's it used for?" <strong>Host</strong>: "It's commonly used for writing."</p>
+            <p><strong>Player Q4</strong>: "Is it a pen?" <strong>Host</strong>: "No, but close! It's another writing tool."</p>
+            <p><strong>Player Q5</strong>: "Is it a pencil?" <strong>Host</strong>: "Yes, you got it in 5 questions! Score: 6 points."</p>
+        </div>
+
+        <h2>Why Play Wairdle?</h2>
+        <p>Wairdle is a quick, brain-teasing game that combines logic, wordplay, and strategy. Whether you're playing solo with an AI host, challenging a friend, or hosting for others, it's a great way to test your wits and have fun. Try different modes to keep it fresh, and see how few questions you need to crack the word!</p>
+
+        <p style="text-align: center; margin-top: 2rem; font-weight: bold; color: #667eea; font-size: 1.2rem;">
+            Ready to play? Find a host, pick your mode, and start guessing!
+        </p>
+    </div>
+</body>
+</html>
