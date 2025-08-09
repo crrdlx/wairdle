@@ -1,3 +1,4 @@
+<!-- Wairdle v0.0.1 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,47 +18,66 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
             background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 20px;
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
 
-        h1 {
-            color: #4a5568;
+        .title {
             text-align: center;
             margin-bottom: 2rem;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: bold;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .title .ai {
+            color: #f7931a;
+            -webkit-text-fill-color: #f7931a;
+            text-shadow: 0 2px 4px rgba(247,147,26,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
         }
 
         h2 {
             color: #2d3748;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e2e8f0;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8rem;
         }
 
         h3 {
             color: #4a5568;
             margin-top: 1.5rem;
             margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
         p {
             margin-bottom: 1rem;
             text-align: justify;
+            font-size: 1.1rem;
         }
 
         ul, ol {
@@ -67,45 +87,55 @@
 
         li {
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .game-modes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .mode-card {
-            background: #f7fafc;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .mode-card h3 {
             color: #2d3748;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
 
         .scoring-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             background: #f7fafc;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .scoring-table th,
         .scoring-table td {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
         }
 
         .scoring-table th {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             font-weight: 600;
         }
@@ -115,11 +145,12 @@
         }
 
         .example-round {
-            background: #f0fff4;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #48bb78;
-            margin: 1.5rem 0;
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #48bb78;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .example-round h3 {
@@ -131,24 +162,196 @@
             margin-bottom: 0.5rem;
         }
 
-        .highlight {
-            background: #fef5e7;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
         .tips {
-            background: #ebf8ff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #3182ce;
-            margin: 1.5rem 0;
+            background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #3182ce;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .tips h3 {
             color: #2c5282;
             margin-bottom: 1rem;
+        }
+
+        .play-section {
+            background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .play-section h2 {
+            color: #d69e2e;
+            border-bottom: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .llm-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .llm-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .llm-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        .llm-button.grok {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        .llm-button.grok:hover {
+            background: linear-gradient(135deg, #ee5a52, #ff6b6b);
+        }
+
+        .llm-button.gemini {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+        }
+
+        .llm-button.gemini:hover {
+            background: linear-gradient(135deg, #34a853, #4285f4);
+        }
+
+        .llm-button.claude {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+        }
+
+        .llm-button.claude:hover {
+            background: linear-gradient(135deg, #a855f7, #8b5cf6);
+        }
+
+        .llm-button.chatgpt {
+            background: linear-gradient(135deg, #10a37f, #1a7f64);
+        }
+
+        .llm-button.chatgpt:hover {
+            background: linear-gradient(135deg, #1a7f64, #10a37f);
+        }
+
+        .prompt-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .prompt-box h3 {
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .prompt-text {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .copy-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: #5a67d8;
+        }
+
+        .play-instructions {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .play-instructions h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .play-instructions ol {
+            padding-left: 1.5rem;
+        }
+
+        .play-instructions li {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+
+        .inspiration-note {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid #38b2ac;
+        }
+
+        .play-now-button {
+            background: linear-gradient(135deg, #f7931a, #f39c12);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(247,147,26,0.3);
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .play-now-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(247,147,26,0.4);
+            background: linear-gradient(135deg, #f39c12, #f7931a);
+        }
+
+        .play-now-container {
+            text-align: center;
+            margin: 2rem 0;
         }
 
         @media (max-width: 768px) {
@@ -157,11 +360,15 @@
                 padding: 1.5rem;
             }
 
-            h1 {
-                font-size: 2rem;
+            .title {
+                font-size: 2.5rem;
             }
 
             .game-modes {
+                grid-template-columns: 1fr;
+            }
+
+            .llm-buttons {
                 grid-template-columns: 1fr;
             }
         }
@@ -169,15 +376,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>How to Play Wairdle</h1>
+        <h1 class="title">W<span class="ai">ai</span>rdle</h1>
+        <p class="subtitle">The AI-powered word guessing game that tests your deduction skills!</p>
         
-        <p>Wairdle is a fun, word-guessing game inspired by 20 Questions and Wordle, where you try to guess a secret word in 7 questions or fewer. It's a mental challenge that tests your deduction and creativity, perfect for word lovers and puzzle enthusiasts!</p>
+        <div class="play-now-container">
+            <a href="#play-section" class="play-now-button">Play Now</a>
+        </div>
+        
+        <p>Wairdle is a fun, word-guessing game inspired by Wordle, 20 Questions, and the IRC chat concept of 7 degrees of separation. You try to guess a secret word in 7 questions or fewer, making it a perfect mental challenge that tests your deduction and creativity!</p>
+
+        <div class="inspiration-note">
+            <p><strong>Fun Fact:</strong> The "7 questions" concept comes from IRC chat culture, where it was discovered that any two people could be connected through about 7 degrees of "leapfrogging" - slightly more than the traditional "6 degrees of separation" theory!</p>
+        </div>
 
         <h2>Game Setup</h2>
         <ul>
-            <li><strong>The Word</strong>: The game host (a person or AI like Grok) chooses a secret English word. By default, it's a noun, but in "Mixed Mode," it can be any part of speech (e.g., verb, adjective).</li>
+            <li><strong>The Word</strong>: The game host (a person or any AI assistant) chooses a secret English word. By default, it's a noun, but in "Mixed Mode," it can be any part of speech (e.g., verb, adjective).</li>
             <li><strong>Word Length</strong>: The host reveals the word's length upfront (e.g., "It's a 5-letter noun: _ _ _ _ _") unless you choose "Mystery Mode," where the length is hidden.</li>
-            <li><strong>Questions</strong>: You have up to 7 questions to guess the word, inspired by the "six degrees of separation" concept. Questions can be yes/no (e.g., "Is it a living thing?"), open-ended (e.g., "What's it used for?"), or specific guesses (e.g., "Is it a pencil?").</li>
+            <li><strong>Questions</strong>: You have up to 7 questions to guess the word. Questions can be yes/no (e.g., "Is it a living thing?"), open-ended (e.g., "What's it used for?"), or specific guesses (e.g., "Is it a pencil?").</li>
             <li><strong>Goal</strong>: Guess the word in as few questions as possible!</li>
         </ul>
 
@@ -265,11 +481,132 @@
         </div>
 
         <h2>Why Play Wairdle?</h2>
-        <p>Wairdle is a quick, brain-teasing game that combines logic, wordplay, and strategy. Whether you're playing solo with an AI host, challenging a friend, or hosting for others, it's a great way to test your wits and have fun. Try different modes to keep it fresh, and see how few questions you need to crack the word!</p>
+        <p>Wairdle is a quick, brain-teasing game that combines logic, wordplay, and strategy. Whether you're playing solo with any AI assistant, challenging a friend, or hosting for others, it's a great way to test your wits and have fun. Try different modes to keep it fresh, and see how few questions you need to crack the word!</p>
 
-        <p style="text-align: center; margin-top: 2rem; font-weight: bold; color: #667eea; font-size: 1.2rem;">
-            Ready to play? Find a host, pick your mode, and start guessing!
-        </p>
+        <div class="play-section" id="play-section">
+            <h2>Ready to Play Wairdle?</h2>
+            <p>Follow these simple steps to start playing with your preferred AI assistant:</p>
+            
+            <div class="prompt-box">
+                <h3>Step 1: Copy the Game Instructions</h3>
+                <p>Copy the prompt below - you'll need to paste this into your chosen AI assistant to start the game:</p>
+                <div class="prompt-text" id="wairdlePrompt">You are now hosting a game of Wairdle! 🎯 Here's how to play:
+
+GAME RULES:
+- Choose a secret English word (default: noun, but can be any part of speech in Mixed Mode)
+- CRITICAL: You MUST reveal the EXACT word length upfront (e.g., "It's a 5-letter noun: _ _ _ _ _") unless in Mystery Mode
+- NEVER guess or estimate the word length - you must know the exact length of your chosen word
+- Allow up to 7 questions to guess the word
+- Questions can be yes/no, descriptive, or direct guesses
+- Provide clear, helpful answers
+- Offer one free hint per game if requested
+- Show visual aid like "_ _ _ _ _" for word length (must match the actual word length exactly)
+- Reveal the word when guessed correctly or after 7 questions
+
+GAME MODES:
+- Standard Mode: Noun only, length revealed
+- Mixed Mode: Any part of speech, length revealed
+- Mystery Mode: Length hidden (can be combined with other modes)
+
+SCORING (optional):
+- 1 question: 10 points 🏆
+- 2-3 questions: 8 points 🥈
+- 4-5 questions: 6 points 🥉
+- 6-7 questions: 4 points
+- Bonus: +2 points if guessed before using all 7 questions
+
+START THE GAME:
+1. Choose a specific word and count its letters exactly
+2. VERIFICATION STEP: Before announcing, count the letters again and confirm the exact number
+3. Announce: "Welcome to Wairdle! 🎮 It's a [exact number]-letter [part of speech]: [underscores matching the exact length]"
+4. Example: "Welcome to Wairdle! 🎮 It's a 5-letter noun: _ _ _ _ _"
+5. Then say: "You have 7 questions to guess the word. What's your first question?"
+
+CRITICAL VERIFICATION RULES:
+- ALWAYS count the letters of your chosen word before announcing
+- If the word is "scissors" - count: s-c-i-s-s-o-r-s = 8 letters, NOT 6
+- If the word is "pencil" - count: p-e-n-c-i-l = 6 letters
+- Double-check your count before announcing
+- If you're unsure about spelling or length, choose a simpler word you're certain about
+
+IMPORTANT: Always verify the word length before starting. If you're unsure about a word's spelling or length, choose a different word you're certain about.
+
+💡 Need help or tips? Visit: https://wairdle.vercel.app
+
+Remember: Be engaging, helpful, and make the game fun! Adjust difficulty based on the player's skill level. 🎲</div>
+                <button class="copy-button" onclick="copyPrompt()">Copy Instructions</button>
+            </div>
+
+            <div class="play-instructions">
+                <h3>Step 2: Start Playing</h3>
+                <ol>
+                    <li>Click one of the AI assistant buttons below to open it in a new tab</li>
+                    <li>Paste the copied instructions into the AI's chat</li>
+                    <li>Start playing Wairdle!</li>
+                </ol>
+            </div>
+
+            <div class="llm-buttons">
+                <a href="https://grok.x.ai/" target="_blank" class="llm-button grok">Open Grok</a>
+                <a href="https://gemini.google.com/" target="_blank" class="llm-button gemini">Open Gemini</a>
+                <a href="https://claude.ai/" target="_blank" class="llm-button claude">Open Claude</a>
+                <a href="https://chat.openai.com/" target="_blank" class="llm-button chatgpt">Open ChatGPT</a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function copyPrompt() {
+            const promptText = document.getElementById('wairdlePrompt').textContent;
+            navigator.clipboard.writeText(promptText).then(function() {
+                const button = document.querySelector('.copy-button');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#48bb78';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = '#667eea';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                alert('Failed to copy prompt. Please select and copy the text manually.');
+            });
+        }
+
+        // Smooth scrolling for Play Now button
+        document.addEventListener('DOMContentLoaded', function() {
+            const playNowButton = document.querySelector('.play-now-button');
+            if (playNowButton) {
+                playNowButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const playSection = document.getElementById('play-section');
+                    if (playSection) {
+                        playSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+<!-- Default Statcounter code for Wairdle
+https://wairdle.vercel.app -->
+<script type="text/javascript">
+    var sc_project=13157753; 
+    var sc_invisible=1; 
+    var sc_security="79dbea21"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="web statistics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/13157753/0/79dbea21/1/"
+    alt="web statistics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
 </body>
 </html>
+<!-- Wairdle v0.0.1 -->
