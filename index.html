@@ -251,6 +251,14 @@
             background: linear-gradient(135deg, #1a7f64, #10a37f);
         }
 
+        .llm-button.venice {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .llm-button.venice:hover {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        }
+
         .prompt-box {
             background: #f7fafc;
             border: 2px solid #e2e8f0;
@@ -275,6 +283,8 @@
             line-height: 1.5;
             white-space: pre-wrap;
             overflow-x: auto;
+            overflow-y: auto;
+            max-height: 300px;
             margin-bottom: 1rem;
         }
 
@@ -324,6 +334,25 @@
             border-radius: 12px;
             margin: 2rem 0;
             border-left: 4px solid #38b2ac;
+            transition: opacity 0.5s ease-in-out;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .fun-fact {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .fun-fact.active {
+            opacity: 1;
         }
 
         .play-now-button {
@@ -386,7 +415,18 @@
         <p>Wairdle is a fun, word-guessing game inspired by Wordle, 20 Questions, and the IRC chat concept of 7 degrees of separation. You try to guess a secret word in 7 questions or fewer, making it a perfect mental challenge that tests your deduction and creativity!</p>
 
         <div class="inspiration-note">
-            <p><strong>Fun Fact:</strong> The "7 questions" concept comes from IRC chat culture, where it was discovered that any two people could be connected through about 7 degrees of "leapfrogging" - slightly more than the traditional "6 degrees of separation" theory!</p>
+            <div class="fun-fact active">
+                <p><strong>Fun Fact:</strong> The "7 questions" concept comes from IRC chat culture, where it was discovered that any two people could be connected through about 7 degrees of "leapfrogging" - slightly more than the traditional "6 degrees of separation" theory!</p>
+            </div>
+            <div class="fun-fact">
+                <p><strong>Fun Fact:</strong> The "Wikipedia Game" is a similar deduction challenge where players start on one Wikipedia page and race to reach another page using only internal links. It's a test of knowledge, strategy, and sometimes luck!</p>
+            </div>
+            <div class="fun-fact">
+                <p><strong>Fun Fact:</strong> Catfishing.net's daily puzzle game drops hints throughout the day, challenging players to piece together clues and guess the answer. It's a masterclass in incremental deduction!</p>
+            </div>
+            <div class="fun-fact">
+                <p><strong>Fun Fact:</strong> The original "20 Questions" game was invented in the 19th century and became popular on radio shows. The game's success relies on asking the most efficient questions to narrow down possibilities!</p>
+            </div>
         </div>
 
         <h2>Game Setup</h2>
@@ -551,6 +591,7 @@ Remember: Be engaging, helpful, and make the game fun! Adjust difficulty based o
                 <a href="https://gemini.google.com/" target="_blank" class="llm-button gemini">Open Gemini</a>
                 <a href="https://claude.ai/" target="_blank" class="llm-button claude">Open Claude</a>
                 <a href="https://chat.openai.com/" target="_blank" class="llm-button chatgpt">Open ChatGPT</a>
+                <a href="https://venice.ai/" target="_blank" class="llm-button venice">Open Venice</a>
             </div>
         </div>
     </div>
@@ -588,6 +629,13 @@ Remember: Be engaging, helpful, and make the game fun! Adjust difficulty based o
                     }
                 });
             }
+
+            // Fun facts - show random fact on page load
+            const funFacts = document.querySelectorAll('.fun-fact');
+            const randomFactIndex = Math.floor(Math.random() * funFacts.length);
+            
+            funFacts.forEach(fact => fact.classList.remove('active'));
+            funFacts[randomFactIndex].classList.add('active');
         });
     </script>
 <!-- Default Statcounter code for Wairdle
