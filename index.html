@@ -383,6 +383,89 @@
             margin: 2rem 0;
         }
 
+        .help-banner {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .help-banner h3 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .help-banner p {
+            margin-bottom: 1rem;
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        .help-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .help-link {
+            background: #4c1d95;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .help-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background: #581c87;
+        }
+
+        .help-link.contact {
+            background: #718096;
+        }
+
+        .help-link.contact:hover {
+            background: #4a5568;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 15px;
+            border-top: 3px solid #4c1d95;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .github-link {
+            color: #4c1d95;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .github-link:hover {
+            color: #581c87;
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .container {
                 margin: 1rem;
@@ -426,6 +509,15 @@
             </div>
             <div class="fun-fact">
                 <p><strong>Fun Fact:</strong> The original "20 Questions" game was invented in the 19th century and became popular on radio shows. The game's success relies on asking the most efficient questions to narrow down possibilities!</p>
+            </div>
+        </div>
+
+        <div class="help-banner">
+            <h3>Improve the AI Prompt</h3>
+            <p>Have suggestions for making the AI prompt better? Share your ideas to help enhance the game experience.</p>
+            <div class="help-links">
+                <a href="https://github.com/crrdlx/wairdle/issues" target="_blank" class="help-link">Suggest Improvements</a>
+                <a href="https://linktr.ee/crrdlx" target="_blank" class="help-link contact">Contact crrdlx</a>
             </div>
         </div>
 
@@ -595,6 +687,11 @@ Remember: Be engaging, helpful, and make the game fun! Adjust difficulty based o
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>Wairdle v0.0.1 - A fun, word-guessing game inspired by Wordle, 20 Questions, and the IRC chat concept of 7 degrees of separation.</p>
+        <p>View the source code on <a href="https://github.com/crrdlx/wairdle" target="_blank" class="github-link">GitHub</a></p>
+    </footer>
 
     <script>
         function copyPrompt() {
